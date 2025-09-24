@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 상세</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <div class="brand">
+                <h1 class="title" id="detail-title">프로젝트 상세</h1>
+            </div>
+            <nav class="nav" aria-label="주요 메뉴">
+                <a href="index.html#portfolio">목록으로</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="container" tabindex="-1">
+        <section class="section">
+            <p id="detail-desc" class="subtitle">프로젝트 상세 설명</p>
+            <div class="grid two">
+                <div>
+                    <h3>디자인 의도</h3>
+                    <p id="project-description">
+                        서비스 목표와 사용자 페르소나를 정의하고 핵심 플로우에 집중했습니다.
+                        정보구조를 단순화하고, 접근성 표준을 고려한 컴포넌트로 일관된 경험을 제공합니다.
+                    </p>
+                </div>
+                <div>
+                    <h3>산출물</h3>
+                    <ul class="skills-list" id="project-deliverables">
+                        <li>IA/Navigation 리디자인</li>
+                        <li>화면 설계서 및 UI 가이드</li>
+                        <li>반응형 시안 (Desktop/Mobile)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>시각 자료</h3>
+            <div class="gallery column" id="project-gallery" aria-label="상세 이미지">
+                <!-- Images will be dynamically loaded here based on project ID -->
+            </div>
+            
+            <!-- <div style="margin: 20px 0;">
+                <button onclick="testLoadImages()" class="btn">테스트: 이미지 로드</button>
+                <button onclick="testLoadProject('p1')" class="btn" style="margin-left: 10px;">테스트: indisair</button>
+                <button onclick="testLoadProject('p2')" class="btn" style="margin-left: 10px;">테스트: chuncheon</button>
+            </div> -->
+
+            <p>
+                <a class="btn" href="index.html#portfolio">포트폴리오로 돌아가기</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>&copy; 2025 Hyomin Sim. All rights reserved.</small>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+    <script>
+        // Direct test script
+        function loadProjectImages() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('project');
+            console.log('Direct script - Project ID:', projectId);
+            
+            const projectData = {
+                p1: { 
+                    folder: 'indisair', 
+                    images: ['in_img01.jpg', 'in_img02.jpg', 'in_img03.png', 'in_img04.jpg', 'in_img05.jpg', 'in_img06.png', 'in_img07.jpg'],
+                    designIntent: '기업의 브랜드 아이덴티티를 효과적으로 전달하는 풀페이지 홈페이지를 설계했습니다. 스크롤 기반의 인터랙티브한 요소와 시각적 스토리텔링을 통해 방문자에게 강한 인상을 남기고, 브랜드 가치를 명확하게 전달할 수 있도록 했습니다.',
+                    deliverables: ['풀페이지 레이아웃 설계', '인터랙티브 스크롤 애니메이션', '브랜드 아이덴티티 반영']
+                },
+                p2: { 
+                    folder: 'chuncheon', 
+                    images: ['kiosk_img01.jpg', 'kiosk_img02.png', 'kiosk_img03.png', 'kiosk_img04.png', 'kiosk_img05.png', 'kiosk_img06.png', 'kiosk_img07.png'],
+                    designIntent: '공공기관 키오스크의 복잡한 업무 프로세스를 사용자 친화적으로 단순화했습니다. 터치 인터페이스에 최적화된 큰 버튼과 직관적인 아이콘을 사용하여 모든 연령대의 시민이 쉽게 이용할 수 있도록 설계했습니다.',
+                    deliverables: ['터치 인터페이스 최적화', '직관적 네비게이션 설계', '접근성 고려 UI/UX', '사용자 테스트 및 개선']
+                },
+                p3: { 
+                    folder: 'graduate', 
+                    images: ['graduate_img01.jpg', 'graduate_img02.jpg', 'graduate_img03.jpg', 'graduate_img04.jpg', 'graduate_img05.jpg'],
+                    designIntent: '학교의 교육적 가치와 따뜻한 분위기를 반영한 웹사이트를 설계했습니다. 학생, 학부모, 교직원 모두가 쉽게 정보를 찾을 수 있도록 명확한 정보구조를 구축하고, 모바일 환경에서도 최적의 경험을 제공하도록 반응형으로 구현했습니다.',
+                    deliverables: ['학교 브랜딩 반영 디자인', '반응형 웹 퍼블리싱', '사용자별 맞춤 정보구조', '모바일 최적화 구현']
+                },
+                p4: { 
+                    folder: 'IMU', 
+                    images: ['dashboard_img01.jpg', 'dashboard_img02.jpg', 'dashboard_img03.jpg', 'dashboard_img04.jpg'],
+                    designIntent: '복잡한 사내 데이터를 직관적으로 파악할 수 있는 대시보드를 설계했습니다. 실시간 데이터 모니터링과 효율적인 의사결정을 지원하기 위해 차트와 그래프를 활용한 시각화 인터페이스를 구현했습니다.',
+                    deliverables: ['데이터 시각화 설계', '실시간 모니터링 인터페이스', '직관적 차트 컴포넌트', '사용자 맞춤 대시보드']
+                },
+                p5: { 
+                    folder: 'miso', 
+                    images: ['miso_img01.jpg', 'miso_img02.jpg', 'PHR_img01.jpg', 'PHR_img02.jpg', 'PHR_img03.jpg'],
+                    designIntent: '데이터 적재 과정의 복잡함을 단순화하고 사용자 친화적인 인터페이스를 설계했습니다. 단계별 진행 상황을 명확히 표시하고, 오류 발생 시 직관적인 피드백을 제공하여 데이터 처리 효율성을 극대화했습니다.',
+                    deliverables: ['데이터 적재 플로우 설계', '진행 상황 시각화', '오류 처리 인터페이스', '반응형 퍼블리싱 구현']
+                },
+                p6: { 
+                    folder: 'IMU', 
+                    images: ['dashboard_img01.jpg', 'dashboard_img02.jpg', 'dashboard_img03.jpg', 'dashboard_img04.jpg'],
+                    designIntent: '기존 강의 사이트의 사용성을 개선하고 현대적인 디자인으로 리뉴얼했습니다. 학습자들이 강의 콘텐츠에 집중할 수 있도록 깔끔한 레이아웃을 구성하고, 다양한 디바이스에서 일관된 경험을 제공하도록 반응형으로 구현했습니다.',
+                    deliverables: ['사이트 리뉴얼 디자인', '학습자 중심 UX 설계', '반응형 웹 구현', '콘텐츠 관리 시스템 연동']
+                },
+                p7: { 
+                    folder: 'kisti', 
+                    images: ['kisti_img01.jpg', 'kisti_img02.jpg', 'kisti_img03.png'],
+                    designIntent: '복잡한 데이터를 효과적으로 시각화하여 사용자가 한눈에 파악할 수 있는 대시보드를 구축했습니다. 인터랙티브한 차트와 그래프를 통해 데이터 탐색이 가능하도록 하고, 사용자 맞춤형 필터링 기능을 제공했습니다.',
+                    deliverables: ['인터랙티브 데이터 시각화', '사용자 맞춤 필터링', '실시간 데이터 업데이트', '반응형 대시보드 구현']
+                },
+                p8: { 
+                    folder: 'dashboard', 
+                    images: ['board01.jpg', 'board02_1.jpg', 'board02.jpg'],
+                    designIntent: '업무 효율성을 높이기 위해 단순하고 직관적인 대시보드를 설계했습니다. 리스트, 입력 폼, 테이블 등의 기본 컴포넌트를 체계적으로 구성하여 사용자가 필요한 정보를 빠르게 찾고 작업할 수 있도록 했습니다.',
+                    deliverables: ['기본 컴포넌트 설계', '데이터 테이블 최적화', '입력 폼 UX 개선', '전체 퍼블리싱 구현']
+                },
+                p9: { 
+                    folder: 'crm', 
+                    images: ['crm_img01.jpg', 'crm_img02.jpg'],
+                    designIntent: '사내 CRM 시스템의 효율성을 높이기 위해 직원들이 자주 사용하는 기능에 집중한 홈페이지를 구축했습니다. 업무 프로세스에 맞는 정보구조를 설계하고, 직관적인 네비게이션을 통해 업무 효율성을 극대화했습니다.',
+                    deliverables: ['CRM 시스템 홈페이지 설계', '업무 프로세스 최적화', '직원 맞춤 인터페이스', '전체 퍼블리싱 구현']
+                }
+            };
+            
+            const project = projectData[projectId];
+            if (project) {
+                // Update design intent
+                const projectDescEl = document.getElementById('project-description');
+                if (projectDescEl && project.designIntent) {
+                    projectDescEl.textContent = project.designIntent;
+                }
+                
+                // Update deliverables
+                const deliverablesEl = document.getElementById('project-deliverables');
+                if (deliverablesEl && project.deliverables) {
+                    deliverablesEl.innerHTML = '';
+                    project.deliverables.forEach(deliverable => {
+                        const li = document.createElement('li');
+                        li.textContent = deliverable;
+                        deliverablesEl.appendChild(li);
+                    });
+                }
+                
+                // Load images
+                const gallery = document.getElementById('project-gallery');
+                if (gallery) {
+                    gallery.innerHTML = '';
+                    project.images.forEach((imgName, index) => {
+                        const img = document.createElement('img');
+                        img.src = `./img/${project.folder}/${imgName}`;
+                        img.alt = `Project image ${index + 1}`;
+                        img.style.width = '100%';
+                        img.style.height = 'auto';
+                        img.style.marginBottom = '20px';
+                        img.style.borderRadius = '8px';
+                        img.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                        gallery.appendChild(img);
+                    });
+                    console.log('Images loaded directly');
+                }
+            }
+        }
+        
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', loadProjectImages);
+    </script>
+</body>
+</html>
+
+
